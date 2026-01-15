@@ -23,10 +23,10 @@ module.exports = (function (settings) {
 
   // Build name from Jenkins → LambdaTest
   if (process.env.LT_BUILD_NAME) {
-    settings["test_settings"]["default"]["desiredCapabilities"] =
-      settings["test_settings"]["default"]["desiredCapabilities"] || {};
-
-    settings["test_settings"]["default"]["desiredCapabilities"]["build"] =
+    settings.test_settings.default.desiredCapabilities["LT:Options"] =
+      settings.test_settings.default.desiredCapabilities["LT:Options"] || {};
+      
+    settings.test_settings.default.desiredCapabilities["LT:Options"]["build"] =
       process.env.LT_BUILD_NAME;
   }
 
